@@ -1,85 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-  min-height: 100vh;
-  min-width: 100vh;
-  background-color: #12181f;
-  color: white;
+    background-image: url(./assets/farm.webp);
+    background-size: cover;
+}
+h2 {
+    color: #45FFCA;
+    text-decoration: wavy;
+    text-shadow: #f15f5f;
 }
 
-h1 {
+.container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.heading {
     text-align: center;
-    font-weight: 700;
-    font-size: 50px;
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
-p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.actions {
-    display: flex;
-    justify-content: center;
-}
-
-.actions button {
-    padding: 8px 16px;
-    font-size: 30px;
-    border-radius: 10px;
-    background-color: #27ae60;
-    color: white;
-}
-
-.grid-container {
-  display: grid;
-  justify-content: center;
-  grid-gap: 16px;
-  grid-template-columns: repeat(6, 140px);
-  grid-template-rows: repeat(2, calc(140px / 2 * 3));
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
 }
 
 .card {
-  height: calc(140px / 2 * 3);
-  width: 140px;
-  border-radius: 10px;
-  background-color: white;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease-in-out;
-}
-
-.front-image {
-  width: 60px;
-  height: 60px;
-}
-
-.card.flipped {
-  transform: rotateY(180deg);
-}
-
-.front, .back {
-    backface-visibility: hidden;
-    position: absolute;
+    height: 110px;
+    width: 90px;
+    background-color: #45FFCA;
     border-radius: 10px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 80%;
+    max-height: 90px;
+    opacity: 0;
+    transition: 0.3s all ease;
+}
+
+.card.clicked {
+    background-color: #FEFFAC;
+}
+
+.card.checked {
+    background-color: #FFB6D9;
+}
+
+.card.clicked img,
+.card.checked img {
+    opacity: 1;
+}
+
+.card.shake {
+    background-color: #f15f5f;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    height: 100vh;
+    position: absolute;
     top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
 }
 
-.card .front {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#play-again {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
-.card .back {
-  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='25' height='25' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M25 30a5 5 0 110-10 5 5 0 010 10zm0-25a5 5 0 110-10 5 5 0 010 10zM0 30a5 5 0 110-10 5 5 0 010 10zM0 5A5 5 0 110-5 5 5 0 010 5zm12.5 12.5a5 5 0 110-10 5 5 0 010 10z'  stroke-width='1' stroke='none' fill='hsla(174, 100%, 29%, 1)'/><path d='M0 15a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm25 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5zM12.5 2.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm0 25a2.5 2.5 0 110-5 2.5 2.5 0 010 5z'  stroke-width='1' stroke='none' fill='hsla(187, 100%, 42%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
-  background-position: center center;
-  background-size: cover;
-  backface-visibility: hidden;
+#play-again:hover {
+    background-color: #2980b9;
 }
 
-.card .front {
-  transform: rotateY(180deg);
-}
